@@ -39,12 +39,20 @@ env:
 #
 # Build Dependencies
 #
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+    - libusb-1.0-0-dev
 before_install:
   - export GOARCH=$TRAVIS_GOARCH
 before_script:
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
 script:
-  - g++ -o main src/main.cpp
-  - qemu-$QEMU_ARCHES main
+  - g++-4.8 -o main src/main.cpp
+  - qemu-arm main
 
