@@ -22,13 +22,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 int MAIN(int argc, char *argv[])
 {
     int a = 0;
     while( a < 50        )        { 
         a ++    ;
     }
-    printf("hello");
+    cout << "Hello, world!" << endl;
     return 1;
 }

@@ -53,6 +53,6 @@ before_script:
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
 script:
-  - g++-4.8 -o main src/main.cpp
-  - qemu-arm main
+  - g++-4.8 -c src/main.cpp -o main
+  - qemu-i386 main
 
