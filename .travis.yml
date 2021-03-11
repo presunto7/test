@@ -35,7 +35,7 @@ cache:
 # Tokens
 #
 env:
-  - TRAVIS_GOARCH=386 QEMU_ARCHES=i386
+  - TRAVIS_GOARCH=386 QEMU_ARCHES=x86_64
 #
 # Build Dependencies
 #
@@ -53,8 +53,8 @@ before_script:
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
 script:
-  - g++-4.8 -m32 -o main src/main.cpp
+  - g++-4.8 -o main src/main.cpp
   - chmod a+x main
   - ls $HOME/qemu/bin
-  - qemu-i386 main
+  - qemu-x86_64 main
 
