@@ -51,10 +51,10 @@ addons:
 before_install:
   - export GOARCH=$TRAVIS_GOARCH
 before_script:
+  - apt-get install python3.6
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
   - export PATH=$PATH:$HOME/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14/bin
-  - apt-get install python3.6
 script:
   - riscv64-unknown-elf-g++ -o main src/main.cpp
   - chmod a+x main
