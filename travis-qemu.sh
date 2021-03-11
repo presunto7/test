@@ -1,5 +1,9 @@
 #!/bin/bash
 set -e
+cd $HOME
+
+wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
+tar -xf "riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
 
 VERSION=${QEMU_VERSION:=5.2.0}
 ARCHES=${QEMU_ARCHES:=arm aarch64 i386 x86_64}
@@ -39,8 +43,4 @@ make install
 
 echo "$VERSION $TARGETS" > $HOME/qemu/.build
 
-cd $HOME
-
-wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
-tar -xf "riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
 
