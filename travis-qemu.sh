@@ -31,7 +31,7 @@ ls /usr/bin/
   --disable-gnutls \
   --disable-gcrypt \
   --disable-nettle \
-  --disable-curses
+  --disable-curses \
   --python=/usr/bin/python
 
 make -j4

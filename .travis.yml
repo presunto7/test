@@ -49,6 +49,7 @@ addons:
     - gcc-4.8
     - g++-4.8
     - libusb-1.0-0-dev
+    - python-3.6
 
 before_install:
   - export GOARCH=$TRAVIS_GOARCH
