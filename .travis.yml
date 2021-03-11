@@ -62,5 +62,5 @@ script:
   - riscv64-unknown-elf-g++ -o main src/main.cpp
   - chmod a+x main
   - ls $HOME/qemu/bin
-  - qemu-system-riscv64 main
+  - qemu-riscv64 main
 
