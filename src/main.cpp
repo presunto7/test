@@ -24,7 +24,7 @@
 
 #include <iostream>
 using namespace std;
-int MAIN(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int a = 0;
     while( a < 50        )        { 
