@@ -35,7 +35,7 @@ cache:
 # Tokens
 #
 env:
-  - TRAVIS_GOARCH=386 QEMU_ARCHES=x86_64
+  - TRAVIS_GOARCH=386 QEMU_ARCHES=riscv
 #
 # Build Dependencies
 #
@@ -53,9 +53,10 @@ before_install:
 before_script:
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
+  - export PATH=$PATH:$HOME/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14/bin
 script:
-  - g++-4.8 -o main src/main.cpp
+  - riscv64-unknown-elf-g++ -o main src/main.cpp
   - chmod a+x main
   - ls $HOME/qemu/bin
-  - qemu-x86_64 main
+  - qemu-riscv main
 

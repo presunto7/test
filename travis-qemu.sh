@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION=${QEMU_VERSION:=2.7.0}
+VERSION=${QEMU_VERSION:=5.2.0}
 ARCHES=${QEMU_ARCHES:=arm aarch64 i386 x86_64}
 TARGETS=${QEMU_TARGETS:=$(echo $ARCHES | sed 's#$# #;s#\([^ ]*\) #\1-softmmu \1-linux-user #g')}
 
@@ -36,3 +36,9 @@ make -j4
 make install
 
 echo "$VERSION $TARGETS" > $HOME/qemu/.build
+
+cd $HOME
+
+wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
+tar -xf "riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
+

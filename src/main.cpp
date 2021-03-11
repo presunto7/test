@@ -31,5 +31,5 @@ int main(int argc, char *argv[])
         a ++    ;
     }
     cout << "Hello, world!" << endl;
-    return 1;
+    return 0;
 }
