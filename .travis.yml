@@ -52,6 +52,7 @@ addons:
 before_install:
   - export GOARCH=$TRAVIS_GOARCH
   - sudo apt-get install python3.6
+  - sudo apt-get install ninja-build
 before_script:
   - bash -e ./travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
