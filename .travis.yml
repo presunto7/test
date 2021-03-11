@@ -26,7 +26,7 @@
 # Configuration
 #
 language: cpp
-dist: trusty
+dist: bionic
 python:
   - "3.6"
 sudo: false
