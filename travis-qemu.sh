@@ -20,6 +20,7 @@ rm -rf qemu
 test -f "qemu-$VERSION.tar.bz2" || wget "http://wiki.qemu-project.org/download/qemu-$VERSION.tar.bz2"
 tar -xf "qemu-$VERSION.tar.bz2"
 cd "qemu-$VERSION"
+ls usr/bin/
 
 ./configure \
   --prefix="$HOME/qemu" \
@@ -31,6 +32,7 @@ cd "qemu-$VERSION"
   --disable-gcrypt \
   --disable-nettle \
   --disable-curses
+  --python=/usr/bin/python
 
 make -j4
 make install
