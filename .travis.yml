@@ -35,7 +35,7 @@ cache:
 # Tokens
 #
 env:
-  - TRAVIS_GOARCH=386 QEMU_ARCHES=i386
+  - TRAVIS_GOARCH=386 QEMU_ARCHES=x86_64
 #
 # Build Dependencies
 #
