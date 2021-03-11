@@ -32,7 +32,7 @@ ls /usr/bin/
   --disable-gcrypt \
   --disable-nettle \
   --disable-curses \
-  --python=/usr/bin/python
+  --python=/usr/bin/python3.6
 
 make -j4
 make install
