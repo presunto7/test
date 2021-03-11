@@ -55,6 +55,9 @@ before_install:
   - sudo apt-get install ninja-build
 before_script:
   - bash -e ./travis-qemu.sh
+  - cd $HOME
+  - wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
+  - tar -xf "riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
   - export PATH=$PATH:$HOME/qemu/bin
   - export PATH=$PATH:$HOME/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14/bin
 script:
