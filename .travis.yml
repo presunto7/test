@@ -55,5 +55,6 @@ before_script:
 script:
   - g++-4.8 -o main src/main.cpp
   - chmod a+x main
+  - ls $HOME/qemu/bin
   - qemu-system-x86_64 main
 
