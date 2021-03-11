@@ -47,6 +47,7 @@ addons:
     - gcc-4.8
     - g++-4.8
     - libusb-1.0-0-dev
+    - ludev
 before_install:
   - export GOARCH=$TRAVIS_GOARCH
 before_script:
