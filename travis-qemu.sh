@@ -6,7 +6,7 @@ wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020
 tar -xf "riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14.tar.gz"
 
 VERSION=${QEMU_VERSION:=5.2.0}
-ARCHES=${QEMU_ARCHES:=arm aarch64 i386 x86_64}
+ARCHES=${QEMU_ARCHES:=arm aarch64 i386 x86_64 riscv64}
 TARGETS=${QEMU_TARGETS:=$(echo $ARCHES | sed 's#$# #;s#\([^ ]*\) #\1-softmmu \1-linux-user #g')}
 
 if echo "$VERSION $TARGETS" | cmp --silent $HOME/qemu/.build -; then
