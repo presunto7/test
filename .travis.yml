@@ -26,8 +26,8 @@
 # Configuration
 #
 language: cpp
-compiler:
-  - g++
+compiler: g++
+sudo: required
 #
 # Tokens
 #
@@ -41,12 +41,16 @@ before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 addons:
+  apt:
+    packages:
+      - cmake
+      - g++-4.8
   coverity_scan:
     project:
       name: "presunto7/test"
       description: "test coverity"
     notification_email: a77220@alunos.uminho.pt
-    build_command_prepend: "./configure"
+    build_command_prepend: "cov-configure --comptype g++ --compiler g++-4.8"
     build_command: "make"
     branch_pattern: coverity_scan
     script:
