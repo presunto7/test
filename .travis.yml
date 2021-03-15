@@ -36,31 +36,22 @@ cache:
 # Tokens
 #
 env:
-  - TRAVIS_GOARCH=386 QEMU_ARCHES=riscv64
-#
-# Build Dependencies
-#
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - g++-4.8
-    - libusb-1.0-0-dev
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "bHK801tTNvuFIYrckJ/x2jTdUJKLCRT1x/bghYj9EhKu1Zc9Ysk5nq31+w3LaPKmu8pKM6iaeSghDU4fj//oSuJIw+OP64A/uLBbE0JSiS/ENzp31IOXCDINRGqzh0saHW9zDGKUCO/pACDADeQG9Yn1aryhJhgRr0x1IwL2DlM+S2rEDLD/6lyEsmqe9pZS0K/smX2bP81fYrADtWbO1NrNQC3T6cRUs7dKr88igyhzYtOURLMWc4zqwOu/Thh/6BXJKRga0Sm3XDlb1ZggeIqr8tDPDnsdK9jwq7et8eC6jgYKRE01TcAZHxoNhuvmWDH1uWie34WSH/4ri3jwrwJpSlKdciTKngBWuTFP/2/RURd8BksWw3w+tPCX7zsXSlJTsjT2y7jkvrX9SA8TtYwxqvMExTyXzokpVCDGmP0VdAGJZacnwJyjxzWcdMNuS6D9Uvev2INc8VvUMXEEZ7oKD/wWDWY36YMgEGH88X3/TJCZ12ZSTe0+gRyqtBLAuZzKX4XpNJ/baCm2Rpq+RBUOrxb9n7r4Zw4taSQrBDs+RHjyYVDEhs6hN78lgoJpSNPsZl2DlwgH80jKQ3IaXlxNRcRDe4zznfAweuQOY+AHFvdSlVNyQZICab9bg/CwmijXF7XI4Cw8+1L814QAyTCa8Ujiz5eyGwgIr9Ab9GM="
 
 before_install:
-  - export GOARCH=$TRAVIS_GOARCH
-  - sudo apt-get install python3.6
-  - sudo apt-get install ninja-build
-before_script:
-  - bash -e ./travis-qemu.sh
-  - export PATH=$PATH:$HOME/qemu/bin
-  - export PATH=$PATH:$HOME/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14/bin
-script:
-  - ls $HOME/riscv64-unknown-elf-gcc-8.3.0-2020.04.0-x86_64-linux-ubuntu14/bin
-  - riscv64-unknown-elf-g++ -o main src/main.cpp
-  - chmod a+x main
-  - ls $HOME/qemu/bin
-  - qemu-riscv64 main
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
+addons:
+  coverity_scan:
+    project:
+      name: "presunto7/test"
+      description: "test coverity"
+    notification_email: a77220@alunos.uminho.pt
+    build_command_prepend: ""
+    build_command: ""
+    branch_pattern: coverity_scan
+    script:
+      gcc -o main src/main.cpp
