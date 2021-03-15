@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 {
     int a = 0;
     while( a < 50        )        { 
-        a ++    ;
+        a ++ ;
     }
     cout << "Hello, world!" << endl;
     return 0;
