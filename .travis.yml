@@ -50,8 +50,8 @@ addons:
       name: "presunto7/test"
       description: "test coverity"
     notification_email: a77220@alunos.uminho.pt
-    build_command_prepend: ""
-    build_command: ""
+    build_command_prepend: "./configure"
+    build_command: "make"
     branch_pattern: coverity_scan
     script:
-      gcc -o main src/main.cpp
+      - make
