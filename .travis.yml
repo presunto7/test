@@ -26,12 +26,8 @@
 # Configuration
 #
 language: cpp
-dist: bionic
-
-sudo: false
-cache:
-  directories:
-    - $HOME/qemu
+compiler:
+  - g++
 #
 # Tokens
 #
@@ -39,7 +35,7 @@ env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "bHK801tTNvuFIYrckJ/x2jTdUJKLCRT1x/bghYj9EhKu1Zc9Ysk5nq31+w3LaPKmu8pKM6iaeSghDU4fj//oSuJIw+OP64A/uLBbE0JSiS/ENzp31IOXCDINRGqzh0saHW9zDGKUCO/pACDADeQG9Yn1aryhJhgRr0x1IwL2DlM+S2rEDLD/6lyEsmqe9pZS0K/smX2bP81fYrADtWbO1NrNQC3T6cRUs7dKr88igyhzYtOURLMWc4zqwOu/Thh/6BXJKRga0Sm3XDlb1ZggeIqr8tDPDnsdK9jwq7et8eC6jgYKRE01TcAZHxoNhuvmWDH1uWie34WSH/4ri3jwrwJpSlKdciTKngBWuTFP/2/RURd8BksWw3w+tPCX7zsXSlJTsjT2y7jkvrX9SA8TtYwxqvMExTyXzokpVCDGmP0VdAGJZacnwJyjxzWcdMNuS6D9Uvev2INc8VvUMXEEZ7oKD/wWDWY36YMgEGH88X3/TJCZ12ZSTe0+gRyqtBLAuZzKX4XpNJ/baCm2Rpq+RBUOrxb9n7r4Zw4taSQrBDs+RHjyYVDEhs6hN78lgoJpSNPsZl2DlwgH80jKQ3IaXlxNRcRDe4zznfAweuQOY+AHFvdSlVNyQZICab9bg/CwmijXF7XI4Cw8+1L814QAyTCa8Ujiz5eyGwgIr9Ab9GM="
+   - secure: - secure: "vh1vqkElA/imONyy//Dz/rhc6txbh5yx73Bke8kKEkxI4pZkD8A3mIRfU077exCohdl3oPUT6VTBNH+CqhCxBhQGvUBtxQUPYTbmRAFBMi5g7q3ig6DX+Dr3mw9k609i5oeE38Yzy90rByS1r5xnaqA0RJ9wv4uyjtosXVWn9hG9jnmxxi6YBdEfQQX4pspGCAmtqM0gElAlK/vSuXCN3gvWcg1l6/HwvX2ESuhc6m8WBqWSXebumThOis8blVZcHs10YfyvqRx40VuQEL2rMc6VtU1a3N1JzPuBJctrUmz+rp3PdblLQVgDNQNuNWEDv84o8umLMkA2cyixKBE5MZQBBGsE81PPLTE65DOatdkR3l025U40KHJx5xqWsaabgyN+Od1aPe5wjhMAqKTwExcjXutGObZN7yc5lDXyPoEpIGcgPukWVBJ0rxqEc1C2oo80euv+AMr6LYqSrKDaVZpqtbFQPhpIU1oyajMnPCQn1bNDIcCEXuHkDHjeUPjMFF793Hmiil6tACVjYdnkhNPBVpPax8rScM2cPzykJb0e6ZqNa8ZgI5zIAR36iFTscsC/Z8ANAufwm9ZsLxHFChxF7TW1DRwjWTOcTQvuoQEH44IHhAqjWbuo2apW5bLSU4yHvSVpfEiDtPaKo4q/RCbKaceFT3VzdzJEPRuEg60="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
