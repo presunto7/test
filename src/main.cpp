@@ -27,6 +27,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     int a = 0;
+    int b [5];
+    b[6] = 0;
     while( a < 50        )        { 
         a ++    ;
     }
