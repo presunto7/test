@@ -35,23 +35,25 @@ env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "vh1vqkElA/imONyy//Dz/rhc6txbh5yx73Bke8kKEkxI4pZkD8A3mIRfU077exCohdl3oPUT6VTBNH+CqhCxBhQGvUBtxQUPYTbmRAFBMi5g7q3ig6DX+Dr3mw9k609i5oeE38Yzy90rByS1r5xnaqA0RJ9wv4uyjtosXVWn9hG9jnmxxi6YBdEfQQX4pspGCAmtqM0gElAlK/vSuXCN3gvWcg1l6/HwvX2ESuhc6m8WBqWSXebumThOis8blVZcHs10YfyvqRx40VuQEL2rMc6VtU1a3N1JzPuBJctrUmz+rp3PdblLQVgDNQNuNWEDv84o8umLMkA2cyixKBE5MZQBBGsE81PPLTE65DOatdkR3l025U40KHJx5xqWsaabgyN+Od1aPe5wjhMAqKTwExcjXutGObZN7yc5lDXyPoEpIGcgPukWVBJ0rxqEc1C2oo80euv+AMr6LYqSrKDaVZpqtbFQPhpIU1oyajMnPCQn1bNDIcCEXuHkDHjeUPjMFF793Hmiil6tACVjYdnkhNPBVpPax8rScM2cPzykJb0e6ZqNa8ZgI5zIAR36iFTscsC/Z8ANAufwm9ZsLxHFChxF7TW1DRwjWTOcTQvuoQEH44IHhAqjWbuo2apW5bLSU4yHvSVpfEiDtPaKo4q/RCbKaceFT3VzdzJEPRuEg60="
+   secure: "vh1vqkElA/imONyy//Dz/rhc6txbh5yx73Bke8kKEkxI4pZkD8A3mIRfU077exCohdl3oPUT6VTBNH+CqhCxBhQGvUBtxQUPYTbmRAFBMi5g7q3ig6DX+Dr3mw9k609i5oeE38Yzy90rByS1r5xnaqA0RJ9wv4uyjtosXVWn9hG9jnmxxi6YBdEfQQX4pspGCAmtqM0gElAlK/vSuXCN3gvWcg1l6/HwvX2ESuhc6m8WBqWSXebumThOis8blVZcHs10YfyvqRx40VuQEL2rMc6VtU1a3N1JzPuBJctrUmz+rp3PdblLQVgDNQNuNWEDv84o8umLMkA2cyixKBE5MZQBBGsE81PPLTE65DOatdkR3l025U40KHJx5xqWsaabgyN+Od1aPe5wjhMAqKTwExcjXutGObZN7yc5lDXyPoEpIGcgPukWVBJ0rxqEc1C2oo80euv+AMr6LYqSrKDaVZpqtbFQPhpIU1oyajMnPCQn1bNDIcCEXuHkDHjeUPjMFF793Hmiil6tACVjYdnkhNPBVpPax8rScM2cPzykJb0e6ZqNa8ZgI5zIAR36iFTscsC/Z8ANAufwm9ZsLxHFChxF7TW1DRwjWTOcTQvuoQEH44IHhAqjWbuo2apW5bLSU4yHvSVpfEiDtPaKo4q/RCbKaceFT3VzdzJEPRuEg60="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 addons:
-  apt:
-    packages:
-      - cmake
-      - g++-4.8
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - gcc-6
+          - g++-6
   coverity_scan:
     project:
       name: "presunto7/test"
       description: "test coverity"
     notification_email: a77220@alunos.uminho.pt
-    build_command_prepend: "cov-configure --comptype g++ --compiler g++-4.8"
+    build_command_prepend: ""
     build_command: "make"
     branch_pattern: coverity_scan
-    script:
-      - make
+  script:
+    - make
