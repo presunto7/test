@@ -55,4 +55,3 @@ addons:
     build_command: "make"
     branch_pattern: cov
   script:
-    - make
