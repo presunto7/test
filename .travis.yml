@@ -54,4 +54,3 @@ addons:
     build_command: "make"
     branch_pattern: coverity_scan
     script:
-      - make
