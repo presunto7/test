@@ -36,7 +36,8 @@ env:
    #   via the "travis encrypt" command using the project repo's public key
    - secure: "sXcLeyDusOuy3jFgWFxokJQdwxpkSoDXLkEZVuStaFG5skfAGpUEJhDUsvRqftnodAvNYnBpIFnjGVqL86+kkucbmObGVgSRk8/owb2v5ELXo/bcZ5zOlyqroi4BTLptsbuwS31AmnHGLPqfQiRuYctXku9pPwXLrjpgnHcZsLbtl3Ci93Nyro990CuSSAR4TLaJqErBt7j9jYTLKlxAJM8VszQ2T0Hs2ptUdpIaaVlMJfVopPPxxQMR7ey3EqF5/Vpw+9pIjtbn0NGsfBalL+lTNSI25zni6/VCSgtKHiIl9t4IpRDurkFI1zajNoRKlW7f6SmuWlvnb0sxivvCiVB6NpM0qofDqZK+aqfngKR8Q9H5cFEOgNum4N7eIJvt04ToW2pgxCvlU9N1uhInwOKcvUdgXfI9hf9OL4oeWjBXMPQ6k8oMpl704WygW2cOW9DKmhOCK3wX92JQT7GVQ44IlgeapqwQ5dlhudXb2MgITGYyrBApOul8H4lzTBU7i+Q4FX/rgFG9StsnjCnmRQXUpYxKEE7OewqIv7+eznMul6Fn0Zu7LEmPZVdFyGEXsGM/2j7iuJ4UC4FWqiIDDmaFcq+/Gq9rcPDf30L9NHXWwOOTIVQ3cx3DKNsOHX8N5p1xG/H/H7/UW74gwvabalM5jyQZbVb8bZ2DqUYTQ0A="
 
-
+install:
+ - echo "hello"
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 addons:
@@ -55,3 +56,4 @@ addons:
     build_command: "make"
     branch_pattern: cov
   script:
+    - make
