@@ -21,9 +21,10 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-
+/* hello */
 #include <iostream>
 using namespace std;
+/* hello */
 int main(int argc, char *argv[])
 {
     int a = 0;
