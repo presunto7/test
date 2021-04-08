@@ -176,7 +176,7 @@ epub_exclude_files = ['search.html']
 import subprocess, os
 
 def configureDoxyfile(input_dir, output_dir):
-    with open('Doxyfile', 'r') as file :
+    with open('Doxyfile.in', 'r') as file :
         filedata = file.read()
 
     filedata = filedata.replace('@DOXYGEN_INPUT_DIR@', input_dir)

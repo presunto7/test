@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>/media/nino/DATA/test/src</compoundname>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="test_8cpp">test.cpp</innerfile>
+    <innerfile refid="test_8h">test.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/nino/DATA/test/src/"/>
+  </compounddef>
+</doxygen>
