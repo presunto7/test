@@ -24,5 +24,5 @@ Indices and tables
 Docs
 ====
 .. HeLLO
-.. doxygenstruct:: cat
+.. doxygenstruct:: cat SFM3000
    :members:
